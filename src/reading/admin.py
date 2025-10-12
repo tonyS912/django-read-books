@@ -5,6 +5,7 @@ from .models import Book
 
 # Register your models here.
 
+
 @admin.display(description="Status")
 def colored_status(obj):
     color = {
@@ -21,9 +22,10 @@ class BookAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "author",
+        "isbn",
         colored_status,
         "rating",
     )
-    list_filter = ("status", "author")      # rechte Filterleiste
-    search_fields = ("title", "author")     # Suchfeld oben
-    ordering = ("-added_on",)               # neueste zuerst
+    list_filter = ("status", "author")  # rechte Filterleiste
+    search_fields = ("title", "author")  # Suchfeld oben
+    ordering = ("-added_on",)  # neueste zuerst
